@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="329" started-at="2020-01-10T17:18:13Z" finished-at="2020-01-10T17:18:13Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="329" started-at="2020-01-10T17:18:13Z" finished-at="2020-01-10T17:18:13Z">
+      <class name="com.sjiintegration.test.Action">
+        <test-method status="PASS" signature="loadlod4j()[pri:0, instance:com.sjiintegration.test.Action@fcd809]" name="loadlod4j" is-config="true" duration-ms="319" started-at="2020-01-10T17:18:13Z" finished-at="2020-01-10T17:18:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadlod4j -->
+      </class> <!-- com.sjiintegration.test.Action -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

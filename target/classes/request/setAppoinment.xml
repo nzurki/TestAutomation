@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:set="http://SJG.com/INTERFACES/setAppointment">
+	<soapenv:Header />
+	<soapenv:Body>
+		<set:ReservationBook>
+			<set:AppointmentStart>?</set:AppointmentStart>
+			<set:AppointmentEnd>?</set:AppointmentEnd>
+			<set:AppointmentBookingGroup>?</set:AppointmentBookingGroup>
+			<set:OperationsArea>?</set:OperationsArea>
+			<set:JobCode>?</set:JobCode>
+			<set:Latitude>?</set:Latitude>
+			<set:Longitude>?</set:Longitude>
+			<set:FieldActivityId>?</set:FieldActivityId>
+			<set:ForcedAppointmentSwitch>?</set:ForcedAppointmentSwitch>
+			<set:FieldActivityComments>?</set:FieldActivityComments>
+			<set:Address1>?</set:Address1>
+			<set:Address2>?</set:Address2>
+			<set:Postal>?</set:Postal>
+			<set:City>?</set:City>
+			<set:State>?</set:State>
+			<set:County>?</set:County>
+			<set:CustomerName>?</set:CustomerName>
+			<set:ContactName>?</set:ContactName>
+			<set:HomePhoneNumber>?</set:HomePhoneNumber>
+			<set:BusinessPhoneNumber>?</set:BusinessPhoneNumber>
+			<set:CellPhoneNumber>?</set:CellPhoneNumber>
+			<set:AccountId>?</set:AccountId>
+			<set:HostExternalSystemId>?</set:HostExternalSystemId>
+		</set:ReservationBook>
+	</soapenv:Body>
+</soapenv:Envelope>

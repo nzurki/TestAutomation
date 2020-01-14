@@ -1,0 +1,296 @@
+//Maximo Login Logout Test
+	public void Maximo_login_Test() throws IOException {
+		enterTextField(By.id(ObjectRepo.sUsername_id), "CM-Usupervisor");
+		enterTextField(By.id(or.sPassword_id), "Maximo.75#");
+		clickButton(By.id(or.sLogin_id));
+		Wait(2);
+		Assert.assertEquals(driver.getTitle(), "Start Center");
+		clickLink(By.cssSelector(or.sSignOut_CSS));
+		Wait(3);
+		clickButton(By.id("submit"));
+		Assert.assertTrue(driver.getTitle().contains("Welcome to Maximo ETown"));
+		log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " ****Execution Completed");
+	}
+
+//Maximo Page Validation	
+	public void Maximo_AssetPageValidation() throws IOException {
+		enterTextField(By.id("j_username"), "CM-Usupervisor");
+		enterTextField(By.id("j_password"), "Maximo.75#");
+		clickButton(By.id("loginbutton"));
+		Assert.assertTrue(driver.getTitle().contains("Start Center"));
+		Wait(2);
+		clickLink(By.id("FavoriteApp_PLUSDASSTR"));
+		Wait(2);
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:1]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:2]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:3]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:4]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:5]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:6]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:7]_txt-tb"));
+		highlightElement(By.id("m6a7dfd2f_tfrow_[C:8]_txt-tb"));
+		clickLink(By.id("titlebar-tb_homeButton"));
+		highlightElement(By.id("FavoriteApp_SJGVENDINV"));
+		highlightElement(By.id("FavoriteApp_PLUSDJOBPL"));
+		highlightElement(By.id("FavoriteApp_LOCATION"));
+		highlightElement(By.id("FavoriteApp_PLUSDASSET"));
+		highlightElement(By.id("FavoriteApp_LABREP"));
+		highlightElement(By.id("FavoriteApp_PM"));
+		highlightElement(By.id("FavoriteApp_SR"));
+		highlightElement(By.id("FavoriteApp_PLUSDWOTRK"));
+		highlightElement(By.id("FavoriteApp_SJGPAYEXP"));
+		highlightElement(By.id("m355fa44c-co2_0"));
+		highlightElement(By.id("portletbox_515317"));
+		highlightElement(By.id("portletbox_515323"));
+		highlightElement(By.id("portletbox_515313"));
+		highlightElement(By.id("portletbox_515309"));
+		clickLink(By.id("titlebar_hyperlink_8-lbsignout"));
+		Wait(2);
+		clickButton(By.id("submit"));
+//			Assert.assertTrue(driver.getTitle().contains("Welcome to"));
+		Wait(2);
+		log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " ****Execution Completed");
+	}
+	
+//WorkDay_loginLogoutTest
+	public void WorkDay_loginLogoutTest() throws IOException {
+		System.out.println("workday login test");
+		enterTextField(By.cssSelector("input[aria-label='Username']"), "lmcneil");
+		enterTextField(By.cssSelector("input[aria-label='Password']"), "Greenbean33$");
+		clickButton(By.cssSelector("button[data-automation-id='goButton']"));
+		waitUntilObjVisible(By.xpath("//*[contains(@data-automation-id,'Welcome')]"));
+		if (verifyPageTitle().contains("Workday")) {
+			log.log(Status.PASS, "Login to WorkDay Successful: " + verifyPageTitle());
+		} else {
+			log.log(Status.FAIL, "Login to WorkDay Not Successful: " + verifyPageTitle());
+		}
+		Wait(5);
+		clickButton(By.cssSelector("button[data-automation-id='Current_User']"));
+		clickButton(By.cssSelector("button[class='wdappchrome-aax']"));
+	}
+	
+//CCB Login Logout Test
+	public void CCB_login_Test() throws IOException {
+//		logger.info("Login to CC&B Page...");
+		enterTextField(By.id("userId"), "nzurki");
+		enterTextField(By.id("password"), passW);
+		clickButton(By.id("loginButton"));
+		Wait(5);
+		Assert.assertEquals(driver.getTitle(), "Control Central");
+		switchtoIframe(By.name("main"));
+		clickLink(By.xpath("//*[@id='youAreLoggedInAsSpan']"));
+		clickLink(By.xpath("//*[@id='Logout']/span[1]"));
+		log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " ****Execution Completed");
+	}
+	
+//WorkDay_CreateAdhocPayment
+//Out of scope - By TJ
+	public void WorkDay_CreateAdhocPayment() throws IOException {
+		System.out.println("WorkDay_CreateAdhocPayment");
+		enterTextField(By.cssSelector("input[aria-label='Username']"), "lmcneil");
+		enterTextField(By.cssSelector("input[aria-label='Password']"), "Greenbean33$");
+		clickButton(By.cssSelector("button[data-automation-id='goButton']"));
+		waitUntilObjVisible(By.xpath("//*[contains(@data-automation-id,'Welcome')]"));
+		if (verifyPageTitle().contains("Workday")) {
+			log.log(Status.PASS, "Login to WorkDay Successful==" + verifyPageTitle());
+		} else {
+			log.log(Status.FAIL, "Login to WorkDay Not Successful==" + verifyPageTitle());
+		}
+		sendKeys(By.cssSelector("input[data-automation-id='globalSearchInput']"), "Create Ad Hoc Payment");
+		clickLink(By.cssSelector("div[id='promptOption-gwt-uid-2']"));
+		clickLink(By.xpath("//*[text()='Bank Account']//preceding::div[1]"));
+		clickLink(By.xpath("//*[text()= 'Companies']"));
+		clickLink(By.xpath("//*[text()= 'Global Modern Services, Inc. (USA)']"));
+		clickLink(By.xpath("//*[text()='Bank Account']//following::span[3]/div[1]"));
+		clickLink(By.xpath("//*[text()= 'Bank Account for Ad Hoc Transactions']"));
+		clickLink(By.xpath("//*[text()= 'AIB - Checking']"));
+		Wait(2);
+		clickLink(By.xpath("//*[text()= 'AIB - Checking']"));
+		clickLink(By.xpath("//*[text()='Payee']//preceding::input[@type='radio']"));
+		clickLink(By.xpath("//*[text()='Payee']//following::span[3]/div[1]"));
+		clickLink(By.xpath("//*[text()= 'Ad Hoc Payee']"));
+		clickLink(By.xpath("//*[text()= 'PP FAS Demo Adhoc Payee 1']"));
+		Wait(2);
+		clickLink(By.xpath("//*[text()= 'PP FAS Demo Adhoc Payee 1']"));
+		scrollDown(driver);
+		clickLink(By.xpath("//*[text()='Ship-To Address']//preceding::span[1]/div[1]"));
+		clickLink(By.xpath("//*[text()= 'Direct Deposit']"));
+		Wait(2);
+		clickLink(By.xpath("//*[text()= 'Direct Deposit']"));
+		clickLink(By.xpath("//*[text()= 'Submit']"));
+		scrollDown(driver);
+		waitUntilObjVisible(By.xpath("//*[contains(text(),'Errors and Alerts Found')]"));
+		Wait(5);
+		clickButton(By.cssSelector("button[data-automation-id='Current_User']"));
+		clickButton(By.cssSelector("button[class='wdappchrome-aax']"));
+	}
+	
+	
+	//CCB Creating a Case and FA on Residential Customer Account
+	public void CCB_CreateCase_FA_Residential_CA() throws IOException {
+
+		String UID = (TestCase.getCellData("CCB", "UID", getRowNum())).toLowerCase();
+		String PWD = decrypt(TestCase.getCellData("CCB", "PWD", getRowNum()));
+		String Account_ID = TestCase.getCellData("CCB", "Account_ID", getRowNum());
+		String Field_Activity_Type = TestCase.getCellData("CCB", "Field_Activity_Type", getRowNum());
+		String Browser = TestCase.getCellData("CCB", "Browser", getRowNum());
+		String URL = TestCase.getCellData("CCB", "URL", getRowNum());
+				
+		setUp(Browser, URL);	
+		enterTextField(By.id("userId"), UID);
+		enterTextField(By.id("password"), PWD);
+		clickButton(By.id("loginButton"));
+		Wait(1);
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabMenu"));
+		clickLink(By.id("MAIN_TLBL"));
+		switchToDefault();
+		Wait(2);
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		clickLink(By.id("multiQueryZoneFilters1"));
+		clickLink(By.xpath("//*[@id='multiQueryZoneFilters1']//following::option[contains(text(),'Account ID')]"));
+		enterTextField(By.id("accountId1"), Account_ID);
+		clickButton(By.id("anTLZ1Refresh"));
+		switchToDefault();
+		Wait(1);
+
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		if (driver.findElement(By.id("context.2.3")).getText().contains("2560796044")) {
+			highlightElement(By.id("context.2.3"));
+			log.log(Status.PASS, "Account information Matched: " + driver.findElement(By.id("context.2.3")).getText());
+		} else {
+			log.log(Status.FAIL,
+					"Account information Not Matched: " + driver.findElement(By.id("context.2.3")).getText());
+		}
+		switchtoIframe(By.id("zoneMapFrame_2"));
+
+		if (driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td[2]/span/a")).getText()
+				.contains("2560796044")) {
+			highlightElement(By.xpath("/html/body/table/tbody/tr[3]/td[2]/span/a"));
+			log.log(Status.PASS, "Account information Matched: "
+					+ driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td[2]/span/a")).getText());
+		} else {
+			log.log(Status.FAIL, "Account information Not Matched: "
+					+ driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td[2]/span/a")).getText());
+		}
+		switchToDefault();
+
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		clickLink(By.id("zoneMapFrame_17"));
+		if (driver.findElement(By.id("context.2.3")).getText().contains(Account_ID)) {
+			log.log(Status.PASS, "Account information Matched: "
+					+ driver.findElement(By.id("context.2.3")).getText().contains(Account_ID));
+			clickLink(By.id("context.2.2"));
+			switchToDefault();
+			Wait(1);
+			switchtoIframe(By.name("main"));
+			WebElement goToCase = driver.findElement(By.cssSelector("#menuDiv_0 ul li:nth-of-type(16)"));
+			moveMouseToElement(goToCase);
+			clickLink(By.id("caseMaintAdd"));
+		} else {
+			log.log(Status.FAIL, "Account information NOT Matched: "
+					+ driver.findElement(By.id("context.2.3")).getText().contains(Account_ID));
+		}
+		switchToDefault();
+
+		Wait(2);
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		enterTextField(By.id("CASE_TYPE_CD"), "BPUCMPL");
+		driver.findElement(By.id("CASE_TYPE_CD")).sendKeys(Keys.ENTER);
+		enterTextField(By.id("COMMENT_LONG"), "Creatring a case - NZ");
+		enterTextField(By.id("CONTACT_INSTR"), "NZ_TestingCase");
+		switchToDefault();
+		Wait(2);
+		switchtoIframe(By.name("main"));
+		clickLink(By.id("IM_SAVE"));
+		switchToDefault();
+
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		if (driver.findElement(By.id("CASE_INFO")).getText().contains("Case created")) {
+			highlightElement(By.id("CASE_INFO"));
+			log.log(Status.PASS, "Account information Matched: " + driver.findElement(By.id("CASE_INFO")).getText());
+		} else {
+			log.log(Status.FAIL,
+					"Account information NOT Matched: " + driver.findElement(By.id("CASE_INFO")).getText());
+		}
+		switchToDefault();
+
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabMenu"));
+		clickButton(By.id("LOG_TLBL"));
+		switchToDefault();
+		Wait(2);
+
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		switchtoIframe(By.name("CASE_LOG"));
+		WebElement dTails = driver.findElement(By.cssSelector("#dataTableBody tr td:nth-of-type(4)"));
+		WebElement logUser = driver.findElement(By.cssSelector("#dataTableBody tr td:nth-of-type(7)"));
+		if (dTails.getText().contains("Case created") && logUser.getText().contains("Created")) {
+			highlightElement(By.id("dataTableBody"));
+			log.log(Status.PASS,
+					"Account information Matched: " + driver.findElement(By.id("dataTableBody")).getText());
+		} else {
+			log.log(Status.FAIL,
+					"Account information NOT Matched: " + driver.findElement(By.id("dataTableBody")).getText());
+		}
+		switchToDefault();
+
+		switchtoIframe(By.name("main"));
+		clickLink(By.id("IM_HISTORY"));
+		clickLink(By.id("historyMenuItem_1"));
+		switchToDefault();
+		Wait(2);
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		switchtoIframe(By.id("zoneMapFrame_17"));
+		clickLink(By.xpath("td[@id='context.5.1']/following-sibling::td[1]"));
+		switchToDefault();
+
+		switchtoIframe(By.name("main"));
+		WebElement goToFieldActivity = driver.findElement(By.cssSelector("#menuDiv_0 ul li:nth-of-type(7)"));
+		moveMouseToElement(goToFieldActivity);
+		clickLink(By.id("CI0000000041"));
+		if (driver.findElement(By.id("ptitle")).getText().contains("Field Activity")) {
+			switchToDefault();
+			switchtoIframe(By.name("main"));
+			switchtoIframe(By.id("tabPage"));
+			enterTextField(By.id("FA_TYPE_CD"), Field_Activity_Type);
+			enterTextField(By.id("SCHED_DTTM_FWDTTM_P1"), "02-26-2019");
+			enterTextField(By.id("SCHED_DTTM_FWDTTM_P2"), "10:00AM");
+			if (driver.findElement(By.id("DISP_GRP_CD")).getAttribute("value").contains("MAXIMO")) {
+				log.log(Status.PASS, "Account information Matched: "
+						+ driver.findElement(By.id("DISP_GRP_CD")).getAttribute("value"));
+			} else {
+				log.log(Status.FAIL, "Account information NOT Matched: "
+						+ driver.findElement(By.id("DISP_GRP_CD")).getAttribute("value"));
+			}
+		} else {
+			log.log(Status.FAIL, "Account information NOT Matched: "
+					+ driver.findElement(By.id("ptitle")).getText().contains("Field Activity"));
+		}
+		switchToDefault();
+		Wait(2);
+		switchtoIframe(By.name("main"));
+		clickLink(By.id("IM_SAVE"));
+		Wait(3);
+		if (driver.switchTo().alert().getText().contains("already exist")) {
+			log.info(driver.switchTo().alert().getText());
+		}
+		switchToDefault();
+		Wait(1);
+		switchtoIframe(By.name("main"));
+		switchtoIframe(By.id("tabPage"));
+		textVerify(By.id("APP_SCHED_INFO"), "Created on");
+		switchToDefault();
+		Wait(1);
+		switchtoIframe(By.name("main"));
+		clickLink(By.xpath("//*[@id='youAreLoggedInAsSpan']"));
+		clickLink(By.xpath("//*[@id='Logout']/span[1]"));
+//		log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " ****Execution Completed");
+	}
